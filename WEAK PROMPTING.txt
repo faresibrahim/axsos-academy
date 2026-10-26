@@ -1,0 +1,184 @@
+WEAK PROMPTING
+
+ME: 
+explain express middleware
+
+CHATGPT:
+Express Middleware Explained
+1. What is middleware?
+Middleware is a function that runs between receiving an HTTP request and sending a response.
+
+Imagine a user logs into a website. Before the server responds, it might need to:
+
+Check whether the user is authenticated.
+
+Read the data sent with the request.
+
+Log the request for debugging.
+
+Check whether the user has permission to access a page.
+
+Middleware lets you handle these tasks without repeating the same code in every route.
+
+2. How does it work?
+1. Client sends a request
+
+GET /users
+
+2. Middleware runs
+
+Logs the request or checks authentication
+
+3. Route handler runs
+
+Retrieves the users
+
+4. Server sends a response
+
+200 OK + user data
+
+This is a typical flow. Middleware can also send a response itself, stop the request, or pass control to another middleware function.
+
+3. Your first middleware function
+Here is a simple Express example:
+
+const express = require("express");
+const app = express();
+
+app.use((req, res, next) => {
+    console.log("A request was received!");
+
+    next();
+});
+
+app.get("/", (req, res) => {
+    res.send("Welcome to my website!");
+});
+
+app.listen(3000);
+
+Let's break it down.
+
+app.use()
+
+Registers middleware with your Express application.
+
+req
+
+The request object. It contains information about the incoming request, such as its URL, HTTP method, and headers.
+
+res
+
+The response object. You use it to send data back to the client.
+
+next()
+
+Tells Express to continue to the next middleware function or route handler.
+
+For example, when you visit http://localhost:3000/, the console prints:
+
+A request was received!
+Then the browser displays:
+
+Welcome to my website!
+Without next(), this middleware would neither continue to the route nor send a response. The request would remain pending.
+
+4. A practical example: reading JSON data
+Suppose your frontend sends this data to your backend:
+
+{
+  "name": "Fares",
+  "age": 25
+}
+
+Your Express server needs to read the JSON body. Express provides built-in middleware for that:
+
+app.use(express.json());
+
+Now you can access the data through req.body:
+
+app.post("/users", (req, res) => {
+    console.log(req.body.name);
+
+    res.send("User received!");
+});
+
+The console prints:
+
+Fares
+Without express.json(), Express does not automatically parse incoming JSON request bodies, so req.body may be undefined.
+
+Real-world use: When your Flutter app or React frontend sends JSON to your backend, this middleware helps Express read that data.
+
+5. Middleware order matters
+Express executes middleware in the order in which you register it.
+
+For example:
+
+app.use(express.json());
+
+app.use((req, res, next) => {
+    console.log("Request received");
+    next();
+});
+
+app.post("/users", (req, res) => {
+    console.log(req.body);
+    res.send("Done");
+});
+
+The execution order is:
+
+Parse the JSON body.
+
+Log the request.
+
+Execute the /users route.
+
+Send the response.
+
+If middleware doesn't call next() or send a response, the request can get stuck.
+
+6. Common types of middleware
+Middleware
+
+Purpose
+
+express.json()
+
+Parses JSON request bodies
+
+Logging middleware
+
+Records incoming requests
+
+Authentication middleware
+
+Checks who the user is
+
+Authorization middleware
+
+Checks what the user is allowed to do
+
+Error-handling middleware
+
+Handles errors during request processing
+
+For example, in a physiotherapy management system, you might use authentication middleware to check whether a request comes from a logged-in user before allowing access to patient records.
+
+One important distinction: authentication checks who you are; authorization checks what you're allowed to access.
+
+Check your understanding
+Question: What happens if middleware runs but never calls next() and never sends a response?
+
+
+Express automatically moves to the next route.
+
+The request remains pending.
+
+The server automatically returns a 404 error.
+The key idea: Middleware lets you run reusable logic during the request-response cycle, before a route responds or while an error is being handled. It's one of the main ways Express applications organize common backend tasks.
+
+
+
+
