@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px;
+  width: 700px;
+  /* margin-left: 16px; */
+  position: relative;
+  border-radius: 8px;
+  border: 4px solid grey;
+}
+
+.top-section {
+  flex: 1;
+  background-color: pink;
+}
+
+.bottom-section {
+  background-color: white;
+  flex: 2;
+}
+
+img {
+  position: absolute;
+  top: 90px;
+  left: 56px;
+}
+
+.info {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 64px;
+  font-size: 24px;
+  gap: 16px;
+}
+
+.info p {
+  margin: 0;
+}
+
+.info p:first-child {
+  font-size: 32px;
+}
+
+.info p:nth-child(2),
+.info p:nth-child(3),
+.info p:nth-child(4) {
+  font-size: 20px;
+}
+
+a {
+  font-size: 16px;
+}

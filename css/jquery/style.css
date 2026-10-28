@@ -1,0 +1,19 @@
+/* .btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  background-color: blue;
+  width: fit-content;
+  padding: 16px;
+  color: white;
+  transition: background-color 300ms ease-out;
+}
+
+.btn:hover {
+  background-color: green;
+} */
