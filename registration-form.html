@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Starter Website</title>
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <form>
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name" />
+      <br />
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name" />
+      <br />
+      <label for="email">Email Address</label>
+      <input type="email" name="email" />
+      <br />
+      <label for="password">Password</label>
+      <input type="password" name="password" />
+      <br />
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" name="confirm_password" />
+      <br />
+      <label for="birth_date">Birth Date</label>
+      <input type="date" name="birth_date" />
+      <br />
+      <label for="gender_identity">Gender Identity</label>
+      <br />
+
+      <input type="radio" name="gender_identity" value="Male" id="male" />
+      <label for="male">Male</label>
+
+      <input type="radio" name="gender_identity" value="Female" id="female" />
+      <label for="female">Female</label>
+
+      <input
+        type="radio"
+        name="gender_identity"
+        value="Undefined"
+        id="undefined"
+      />
+      <label for="undefined">Undefined</label>
+      <br />
+
+      <label for="description">A short description about myself: </label>
+      <br />
+      <textarea name="description" cols="100" rows="10"></textarea>
+      <br />
+      <label for="fav_language">Favorite Language:</label>
+      <select name="fav_language">
+        <option>JavaScript</option>
+        <option>C++</option>
+        <option>C#</option>
+        <option>Python</option>
+      </select>
+      <br />
+      <input type="checkbox" name="update" id="update" />
+      <label for="update"
+        >Yes, I would like to receive periodic Email updates</label
+      >
+      <br />
+      <button>Create Account</button>
+      <br />
+      <label>* Indicates a required field</label>
+    </form>
+  </body>
+</html>

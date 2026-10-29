@@ -1,0 +1,42 @@
+1st Image:
+Tags:
+<h1>
+<h2>
+<p>
+<image>
+<button>
+<ul> + <li>
+<div>
+
+2nd image:
+<img>
+<h3>
+<p>
+<div>
+<button>
+
+3rd image:
+<img>
+<button>
+<i>
+<nav>
+<a>
+<h3>
+
+4th image:
+<h2>
+<nav>
+<button>
+<i>
+<p>
+<a>
+
+
+5th image:
+<h2>
+<h3>
+<nav>
+<button>
+<ul> + <li>
+<p>
+<img>

@@ -1,0 +1,11 @@
+DESKTOP-Q9NK5DB:/mnt/host/c/Users/Lenovo/onedrive/desktop/axsos-python# tree
+.
+└── python_stack
+    ├── _python
+    │   ├── OOP
+    │   └── python_fundamentals
+    ├── django
+    │   ├── django_fullstack
+    │   ├── django_fundamentals
+    │   └── django_orm
+    └── my_environments

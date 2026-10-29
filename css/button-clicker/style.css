@@ -1,0 +1,87 @@
+body {
+  margin-left: 96px;
+  margin-right: 96px;
+}
+h1 {
+  margin: 0;
+}
+
+.grid {
+  display: flex;
+}
+
+.section1 {
+  flex: 2;
+  margin-right: 16px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+  padding: 16px;
+  align-items: center;
+}
+
+.login-btn {
+  padding: 4px 16px;
+  background-color: slateblue;
+  box-shadow: 2px 2px;
+}
+
+#search-bar {
+  width: 300px;
+  height: 32px;
+  border: 2px solid black;
+}
+
+.main {
+  margin-top: 32px;
+  display: flex;
+  gap: 96px;
+  border: 2px solid black;
+  padding: 16px;
+}
+
+.definition {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 16px;
+}
+
+#add-definition-btn {
+  border: 2px solid black;
+  padding: 2px 16px;
+  background-color: greenyellow;
+  box-shadow: 2px 2px;
+}
+
+.word {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-shrink: 0;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+}
+
+.likes {
+  border: 1px solid black;
+  padding: 4px 8px;
+  box-shadow: 2px 2px;
+  background-color: green;
+  text-align: center;
+}
+
+.word p {
+  font-size: 24px;
+}
+
+.description p {
+  font-size: 24px;
+}

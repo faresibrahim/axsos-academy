@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>button clicker</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Dojonary</h1>
+      <form>
+        <input id="search-bar" type="text" placeholder="Search..." />
+      </form>
+      <button class="login-btn" onclick="loginLogout()">Login</button>
+    </div>
+    <div class="grid">
+      <div class="section1">
+        <div class="main">
+          <div class="word">
+            <h1>ninja</h1>
+            <p>noun</p>
+            <p>Plural: ninjas</p>
+            <p class="likes">13 likes</p>
+          </div>
+          <div class="description">
+            <p>
+              A practitioner skilled in the <a href="#">Japanese</a> art of
+              <a href="#">ninjutsu</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="main">
+          <div class="word">
+            <h1>ninja</h1>
+            <p>noun</p>
+            <p>Plural: ninjas</p>
+            <p class="likes">37 likes</p>
+          </div>
+
+          <div class="description">
+            <p>
+              A <a href="#">Programmer</a> who breaks down problems with
+              <a href="#">zen</a>-like focus
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section2">
+        <div class="definition">
+          <p>Dojonary is defined by YOU</p>
+          <button id="add-definition-btn">Add Definition</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+.row {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  align-items: center;
+}
+
+.col {
+  height: 32px;
+  flex: 1;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-2 {
+  height: 32px;
+  flex: 2;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-3 {
+  height: 32px;
+  flex: 3;
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
