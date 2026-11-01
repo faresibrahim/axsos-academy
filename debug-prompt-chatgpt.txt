@@ -1,0 +1,92 @@
+You are senior software developer.
+I am learning python functions and returns values.
+Expected Behavior:
+The function should return the larger of the two numbers.
+Actual Behavior:
+The function always returns the first number
+ErrorMessage:
+There is no error message, but the result is incorrect.
+Code: 
+def larger(a,b):
+    if a> b:
+      return a
+     return a
+
+Task:
+Identify root cause of the problem
+Explain why the current code produces the wrong result
+suggest the smallest fix possible
+show the corrected code
+provide three test cases
+format:
+root cause
+suggested fix
+corrected code
+testing steps
+…
+
+
+ChatGpt:
+1. Root cause
+The problem is in the second return a statement.
+
+def larger(a, b):
+    if a > b:
+        return a
+    return a
+
+Both paths return a, regardless of whether a or b is larger.
+
+2. Suggested fix
+Change the second return a to return b.
+
+Python executes the first return only when a > b is true. Otherwise, it skips the if block and executes the second return.
+
+3. Corrected code
+def larger(a, b):
+    if a > b:
+        return a
+    return b
+
+4. Testing steps
+Test the function with these three cases:
+
+Test
+
+Input
+
+Expected output
+
+Reason
+
+1
+
+larger(10, 5)
+
+10
+
+a is larger
+
+2
+
+larger(3, 8)
+
+8
+
+b is larger
+
+3
+
+larger(5, 5)
+
+5
+
+Both numbers are equal
+
+Run these tests using:
+
+print(larger(10, 5))  # 10
+print(larger(3, 8))   # 8
+print(larger(5, 5))   # 5
+
+Key lesson: A return statement immediately ends the function. If the condition is false, Python continues to the next statement outside the if block. In this case, that second return must return b, not a.

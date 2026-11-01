@@ -1,0 +1,3 @@
+1- The second prompt gave a better answer because it perfectly understands the current situation and has more context about what's going on. With AI, without being specific in details, the answer will always be generalized
+2- The second one because the table explained each OOP concept related to the code we are writing.
+3- When we told the AI to not write the full solution and that we are currently learning not just fixing code, it used a teaching technique more than just trying to fix some words in code.

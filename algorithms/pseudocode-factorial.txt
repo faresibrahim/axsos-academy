@@ -1,0 +1,11 @@
+result = 1
+read input1
+
+if input1 < 0 then
+    output "Invalid input"
+else
+    for(i = input1, 1, -1)
+        start
+            result = result * i
+        end
+    output result

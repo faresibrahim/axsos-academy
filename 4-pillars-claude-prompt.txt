@@ -1,0 +1,250 @@
+Role:
+Act as a senior Python developer and Software Engineer.
+Context:
+ We are learning the 4 pillars of OOP in the full stack training bootcamp. We were introduced to inheritance and polymorphism, and worked out some beginner-friendly exercises on them. 
+Task:
+List and explain all 4 pillars. Provide a simple real-life analogy. One short python example for each pillar. An explanation of how each example demonstrates its pillar. The expected output. Lastly, a beginner friendly explanation of why our python course focuses more on inheritance and polymorphism and does not fully explain encapsulation. Why some OOP pillars may appear differently in Python
+
+Format:
+Use simple English
+
+
+Claude:
+
+Loading the programming-mentor skill for learning intent
+I’ll load the programming mentor skill first, since this is a teaching request, and then write the explanation.
+
+Loaded skill
+The 4 Pillars of OOP in Python
+The 4 pillars are Encapsulation, Abstraction, Inheritance, and Polymorphism. You already know the last two from class, so I’ll cover all four and then explain why your course focuses on those two.
+
+1. Encapsulation
+Meaning: Keep data and the code that uses it together in one class, and protect the data from direct, careless changes.
+
+Real-life analogy: An ATM. The cash is locked inside. You can’t reach in and take it. You use buttons (deposit, withdraw), and the machine checks the rules first.
+
+python
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance      # double underscore = "keep out"
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Invalid or too large amount")
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount("Sara", 100)
+account.deposit(50)
+account.withdraw(500)
+print(account.get_balance())
+
+try:
+    print(account.__balance)
+except AttributeError:
+    print("Cannot touch the balance directly!")
+Expected output:
+
+Invalid or too large amount
+150
+Cannot touch the balance directly!
+How it shows the pillar: The balance is hidden behind __balance. Outside code must use deposit() and withdraw(), which check the rules. Nobody can set the balance to a negative number by accident.
+
+2. Abstraction
+Meaning: Show only what is needed and hide the complex details. It also lets a parent class say “every child must have this method” without saying how it works.
+
+Real-life analogy: A TV remote. You press “volume up”. You don’t need to know how the electronics work.
+
+python
+from abc import ABC, abstractmethod
+
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        print("Car engine started.")
+
+car = Car()
+car.start()
+
+try:
+    v = Vehicle()
+except TypeError:
+    print("You cannot create a plain Vehicle. It is only an idea.")
+Expected output:
+
+Car engine started.
+You cannot create a plain Vehicle. It is only an idea.
+How it shows the pillar: Vehicle is an idea. It says “every vehicle can start” but gives no details. Car supplies the real details. The user only calls start() and doesn’t care how it works inside. Python also refuses to create an object from the abstract class.
+
+3. Inheritance
+Meaning: A child class gets the data and methods of a parent class, so you don’t repeat code.
+
+Real-life analogy: A child inherits traits from their parents, like eye color. A smartphone “inherits” from a phone: it can already call, and then it adds apps and a camera.
+
+python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def eat(self):
+        print(f"{self.name} is eating.")
+
+class Dog(Animal):
+    def bark(self):
+        print(f"{self.name} says Woof!")
+
+dog = Dog("Rex")
+dog.eat()
+dog.bark()
+Expected output:
+
+Rex is eating.
+Rex says Woof!
+How it shows the pillar: Dog never wrote eat() or __init__, but it can use both because it inherits from Animal. It only adds what is new: bark().
+
+4. Polymorphism
+Meaning: “Many forms”. The same method name can behave differently depending on the object.
+
+Real-life analogy: A “play” button. On a music app it plays a song. In a video app it plays a movie. In a game it starts the game. The button is the same, but the result is different.
+
+python
+class Animal:
+    def speak(self):
+        print("Some sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof!")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow!")
+
+for animal in [Dog(), Cat(), Animal()]:
+    animal.speak()
+Expected output:
+
+Woof!
+Meow!
+Some sound
+How it shows the pillar: The loop calls speak() on every object in the same way. Each object answers in its own way. Dog and Cat override speak() from Animal. The loop doesn’t need if statements to check the type.
+
+Why your course focuses on inheritance and polymorphism
+I can’t see your course plan, so these are the most likely reasons.
+
+They are easy to see and test. You write class Dog(Animal) and run it. The result is visible right away. That is great for beginner exercises.
+Encapsulation is mostly a design habit in Python. In languages like Java or C#, private is enforced. The compiler stops you. Python has no true private. It uses naming rules instead:
+_name means “please don’t touch this” (just a convention).
+__name triggers name mangling. Python renames it to _ClassName__name. This is a speed bump, not a lock. In our example, account._BankAccount__balance still works.
+Python’s culture is “we are all consenting adults”: the language trusts you to follow the rules. So there is less to teach as a language feature.
+The Pythonic tools for encapsulation come later. Proper encapsulation uses @property with getters and setters. Beginners usually learn that after the basics of classes.
+Abstraction needs an extra module. The abc module (used above) is an extra topic, so courses often leave it for later.
+Polymorphism looks different in Python. Python uses duck typing: “If it walks like a duck and quacks like a duck, it is a duck.” Any object with a speak() method works in the loop, even if it has no parent class. Other languages need inheritance or interfaces for this. In Python, inheritance isn’t required for polymorphism.
+In short: Python gives you freedom, so some pillars are recommended habits here instead of strict rules. Encapsulation still matters in real projects, especially in a full stack job, where you protect data like balances, passwords, and user roles.
+
+Check yourself
+Before running this code, answer two questions: What will it print? Which pillars do you see?
+
+python
+class Shape:
+    def area(self):
+        return 0
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side * self.side
+
+for s in [Shape(), Square(3)]:
+    print(s.area())
+Send me your answer and I’ll check it. Then I can give you a small coding task that mixes encapsulation with inheritance.
+
+so if a class has a method's name that is similar to a method in another class, it shares the same definition?
+
+Explaining how inheritance and overriding shape method definitions
+No. A method name alone shares nothing. Methods are only shared through inheritance.
+
+There are three cases.
+
+Case 1: Same name, no relationship
+The two classes are completely separate. Each one has its own definition.
+
+python
+class Dog:
+    def speak(self):
+        print("Woof!")
+
+class Robot:
+    def speak(self):
+        print("Beep boop.")
+
+Dog().speak()
+Robot().speak()
+Output:
+
+Woof!
+Beep boop.
+Dog and Robot don’t know about each other. This is the “duck typing” I mentioned earlier. The names match, so you can call them the same way, but the code is different.
+
+Case 2: Parent and child, and the child doesn’t define the method
+The child uses the parent’s definition. This is real sharing.
+
+Case 3: Parent and child, and the child defines the same name
+The child’s version overrides the parent’s. The child uses its own.
+
+python
+class Animal:
+    def eat(self):
+        print("Eating...")
+
+    def speak(self):
+        print("Some sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof!")
+
+d = Dog()
+d.eat()
+d.speak()
+Output:
+
+Eating...
+Woof!
+eat() comes from Animal because Dog didn’t write its own.
+speak() comes from Dog because Dog has its own version, so the parent’s version is skipped.
+Python looks in the object’s own class first. If it doesn’t find the method there, it looks in the parent class.
+
+Bonus: using both versions
+If you want the child to keep the parent’s behavior and add more, use super():
+
+python
+class Dog(Animal):
+    def speak(self):
+        super().speak()      # run the parent's version first
+        print("Woof!")
+Calling Dog().speak() would print Some sound, then Woof!.
+
+Summary
+Situation	What happens
+Same name, unrelated classes	Separate code, nothing shared
+Child has no method of that name	Child uses the parent’s code
+Child has the same name	Child’s code overrides the parent’s
+Child calls super().method()	Runs the parent’s code too
+Whenever you see a method name repeated, ask: is there a parent-child relationship here? That tells you whether it’s sharing or overriding.
+
+When you’re ready, send me your answer to the “Check yourself” question from before.
