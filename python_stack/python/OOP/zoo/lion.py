@@ -8,8 +8,7 @@ class Lion(Animal):
   
   def display_info(self):
     super().display_info()             
-    print(f"Strength: {self.strength}") 
-  
+    
   def feed(self):
     super().feed()                      
     self.health_level += 15            

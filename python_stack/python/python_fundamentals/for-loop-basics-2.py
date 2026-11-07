@@ -52,7 +52,7 @@
 # print(res)
 
 #Length
-# def length(list)
+# def length(list):
 #   n=len(list)
 #   return n
 
@@ -110,14 +110,14 @@
 # dict=ultimateAnalysis(li)
 # print(dict)
 
-#Reverse List
+# #Reverse List
 # def reverse(list):
 #   n=len(list)
 #   x=0 #1st index
 #   y=n-1 #2nd index
 #   for i in range(n//2):
 #     temp=list[x]
-#     list[x]=list[y]
+#     list[x]=list[y] 
 #     list[y] = temp
 #     x+=1
 #     y-=1
